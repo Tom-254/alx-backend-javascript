@@ -1,0 +1,22 @@
+#!/bin/bash
+allThreads=("0-constants.js" "1-block-scoped.js" "2-arrow.js" "3-default-parameter.js" "4-rest-parameter.js" "5-spread-operator.js" "6-string-interpolation.js" "7-getBudgetObject.js" "8-getBudgetCurrentYear.js" "9-getFullBudget.js" "10-loops.js" "11-createEmployeesObject.js" "12-createReportObject.js" "100-createIteratorObject.js" "101-iterateThroughObject.js")
+
+mkdir -p "0x00-ES6_basic"
+
+for t in ${allThreads[@]}; do
+
+    if [[ $t == *".py"* ]]; then
+        echo -e "#!/usr/bin/python3\n" > "./0x00-ES6_basic/$t" && chmod +x "./0x00-ES6_basic/$t"
+    else
+        echo -e "#!/usr/bin/node\n" > "./0x00-ES6_basic/$t"
+        # touch "./0x00-ES6_basic/$t"
+    fi
+done
+
+echo -e "# ALX Programme Project: 0x00. ES6 Basics" > "./0x00-ES6_basic/README.md"
+
+echo -e "#!/bin/bash\ngit add . && git commit -m '0x00. ES6 Basics" > "./0x00-ES6_basic/correction" && chmod +x "./0x00-ES6_basic/correction"
+
+cp "../alx-higher_level_programming/0x05-python-exceptions/clean_up_corrections" "./0x00-ES6_basic/"
+
+cd ./0x00-ES6_basic
