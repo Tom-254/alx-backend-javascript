@@ -1,0 +1,6 @@
+#!/bin/bash
+if [ "$1" != "" ]; then
+    dos2unix "$1" && chmod +x "$1"
+else
+    dos2unix *.js && chmod +x *.js
+fi
