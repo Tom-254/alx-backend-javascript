@@ -1,22 +1,35 @@
 #!/bin/bash
-allThreads=("0-constants.js" "1-block-scoped.js" "2-arrow.js" "3-default-parameter.js" "4-rest-parameter.js" "5-spread-operator.js" "6-string-interpolation.js" "7-getBudgetObject.js" "8-getBudgetCurrentYear.js" "9-getFullBudget.js" "10-loops.js" "11-createEmployeesObject.js" "12-createReportObject.js" "100-createIteratorObject.js" "101-iterateThroughObject.js")
+allThreads=("task_0/js/main.ts" "task_1/js/main.ts" "task_1/js/main.ts" "task_1/js/main.ts" "task_1/js/main.ts" "task_2/js/main.ts" "task_2/js/main.ts" "task_2/js/main.ts" "task_3/js/main.ts" "task_3/js/interface.ts" "task_3/js/crud.d.ts" "task_4/js/subjects/Cpp.ts" "task_4/js/subjects/Java.ts" "task_4/js/subjects/React.ts" "task_4/js/subjects/Subject.ts" "task_4/js/subjects/Teacher.ts" "task_4/js/main.ts" "task_5/js/main.ts" "package.json" "webpack.config.js" ".eslintrc.js" "tsconfig.json")
 
-mkdir -p "0x00-ES6_basic"
+mkdir -p "0x04-TypeScript"
+mkdir -p "0x04-TypeScript/task_0"
+mkdir -p "0x04-TypeScript/task_1"
+mkdir -p "0x04-TypeScript/task_2"
+mkdir -p "0x04-TypeScript/task_3"
+mkdir -p "0x04-TypeScript/task_4"
+mkdir -p "0x04-TypeScript/task_5"
+mkdir -p "0x04-TypeScript/task_0/js/"
+mkdir -p "0x04-TypeScript/task_1/js/"
+mkdir -p "0x04-TypeScript/task_2/js/"
+mkdir -p "0x04-TypeScript/task_3/js/"
+mkdir -p "0x04-TypeScript/task_4/js/"
+mkdir -p "0x04-TypeScript/task_5/js/"
+mkdir -p "0x04-TypeScript/task_4/js/subjects/"
 
 for t in ${allThreads[@]}; do
 
     if [[ $t == *".py"* ]]; then
-        echo -e "#!/usr/bin/python3\n" > "./0x00-ES6_basic/$t" && chmod +x "./0x00-ES6_basic/$t"
+        echo -e "#!/usr/bin/python3\n" > "./0x04-TypeScript/$t" && chmod +x "./0x04-TypeScript/$t"
     else
-        echo -e "#!/usr/bin/node\n" > "./0x00-ES6_basic/$t"
-        # touch "./0x00-ES6_basic/$t"
+        # echo -e "#!/usr/bin/node\n" > "./0x04-TypeScript/$t"
+        touch "./0x04-TypeScript/$t"
     fi
 done
 
-echo -e "# ALX Programme Project: 0x00. ES6 Basics" > "./0x00-ES6_basic/README.md"
+echo -e "# ALX Programme Project: 0x04. Typescript" > "./0x04-TypeScript/README.md"
 
-echo -e "#!/bin/bash\ngit add . && git commit -m '0x00. ES6 Basics" > "./0x00-ES6_basic/correction" && chmod +x "./0x00-ES6_basic/correction"
+echo -e "#!/bin/bash\ngit add . && git commit -m '0x04. Typescript' && git push"  > "./0x04-TypeScript/correction" && chmod +x "./0x04-TypeScript/correction"
 
-cp "../alx-higher_level_programming/0x05-python-exceptions/clean_up_corrections" "./0x00-ES6_basic/"
+cp "../alx-higher_level_programming/0x05-python-exceptions/clean_up_corrections" "./0x04-TypeScript/"
 
-cd ./0x00-ES6_basic
+cd ./0x04-TypeScript
