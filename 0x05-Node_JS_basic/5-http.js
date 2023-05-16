@@ -6,6 +6,11 @@ const HOST = 'localhost';
 const app = http.createServer();
 const DB_FILE = process.argv.length > 2 ? process.argv[2] : '';
 
+/**
+ * Counts the students in a CSV data file.
+ * @param {String} dataPath The path to the CSV data file.
+ * @author Bezaleel Olakunori <https://github.com/B3zaleel>
+ */
 const countStudents = (dataPath) => new Promise((resolve, reject) => {
   if (!dataPath) {
     reject(new Error('Cannot load the database'));
@@ -63,23 +68,34 @@ const SERVER_ROUTE_HANDLERS = [
   {
     route: '/',
     handler(_, res) {
-      res.send('Hello Holberton School!');
+      const responseSections = 'Hello Holberton School!';
+
+      res.setHeader('Content-Type', 'text/plain');
+      res.setHeader('Content-Length', responseSections.length);
+      res.statusCode = 200;
+      res.write(Buffer.from(responseSections));
     },
   },
   {
     route: '/students',
     handler(_, res) {
-      const responseSections = ['This is the list of our students'];
+      const responseParts = ['This is the list of our students'];
 
       countStudents(DB_FILE)
         .then((report) => {
-          responseSections.push(report);
-          const responseText = responseSections.join('\n');
+          responseParts.push(report);
+          const responseSections = responseParts.join('\n');
+          res.setHeader('Content-Type', 'text/plain');
+          res.setHeader('Content-Length', responseSections.length);
+          res.statusCode = 200;
           res.send(responseText);
         })
         .catch((err) => {
-          responseSections.push(err instanceof Error ? err.message : err.toString());
-          const responseText = responseSections.join('\n');
+          responseParts.push(err instanceof Error ? err.message : err.toString());
+          const responseSections = responseParts.join('\n');
+          res.setHeader('Content-Type', 'text/plain');
+          res.setHeader('Content-Length', responseSections.length);
+          res.statusCode = 200;
           res.send(responseText);
         });
     },
