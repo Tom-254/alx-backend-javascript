@@ -68,35 +68,35 @@ const SERVER_ROUTE_HANDLERS = [
   {
     route: '/',
     handler(_, res) {
-      const responseSections = 'Hello Holberton School!';
+      const responseText = 'Hello Holberton School!';
 
       res.setHeader('Content-Type', 'text/plain');
-      res.setHeader('Content-Length', responseSections.length);
+      res.setHeader('Content-Length', responseText.length);
       res.statusCode = 200;
-      res.write(Buffer.from(responseSections));
+      res.write(Buffer.from(responseText));
     },
   },
   {
     route: '/students',
     handler(_, res) {
-      const responseParts = ['This is the list of our students'];
+      const responseSections = ['This is the list of our students'];
 
       countStudents(DB_FILE)
         .then((report) => {
-          responseParts.push(report);
-          const responseSections = responseParts.join('\n');
+          responseSections.push(report);
+          const responseText = responseSections.join('\n');
           res.setHeader('Content-Type', 'text/plain');
-          res.setHeader('Content-Length', responseSections.length);
+          res.setHeader('Content-Length', responseText.length);
           res.statusCode = 200;
-          res.send(responseText);
+          res.write(Buffer.from(responseText));
         })
         .catch((err) => {
-          responseParts.push(err instanceof Error ? err.message : err.toString());
-          const responseSections = responseParts.join('\n');
+          responseSections.push(err instanceof Error ? err.message : err.toString());
+          const responseText = responseSections.join('\n');
           res.setHeader('Content-Type', 'text/plain');
-          res.setHeader('Content-Length', responseSections.length);
+          res.setHeader('Content-Length', responseText.length);
           res.statusCode = 200;
-          res.send(responseText);
+          res.write(Buffer.from(responseText));
         });
     },
   },
