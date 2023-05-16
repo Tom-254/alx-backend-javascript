@@ -1,35 +1,25 @@
 #!/bin/bash
-allThreads=("task_0/js/main.ts" "task_1/js/main.ts" "task_1/js/main.ts" "task_1/js/main.ts" "task_1/js/main.ts" "task_2/js/main.ts" "task_2/js/main.ts" "task_2/js/main.ts" "task_3/js/main.ts" "task_3/js/interface.ts" "task_3/js/crud.d.ts" "task_4/js/subjects/Cpp.ts" "task_4/js/subjects/Java.ts" "task_4/js/subjects/React.ts" "task_4/js/subjects/Subject.ts" "task_4/js/subjects/Teacher.ts" "task_4/js/main.ts" "task_5/js/main.ts" "package.json" "webpack.config.js" ".eslintrc.js" "tsconfig.json")
+allThreads=("database.csv" "package.json" "babel.config.js" ".eslintrc.js" "0-console.js" "1-stdin.js" "2-read_file.js" "3-read_file_async.js" "4-http.js" "5-http.js" "6-http_express.js" "7-http_express.js" "full_server/utils.js" "full_server/controllers/AppController.js" "full_server/controllers/StudentsController.js" " full_server/routes/index.js" "full_server/server.js")
 
-mkdir -p "0x04-TypeScript"
-mkdir -p "0x04-TypeScript/task_0"
-mkdir -p "0x04-TypeScript/task_1"
-mkdir -p "0x04-TypeScript/task_2"
-mkdir -p "0x04-TypeScript/task_3"
-mkdir -p "0x04-TypeScript/task_4"
-mkdir -p "0x04-TypeScript/task_5"
-mkdir -p "0x04-TypeScript/task_0/js/"
-mkdir -p "0x04-TypeScript/task_1/js/"
-mkdir -p "0x04-TypeScript/task_2/js/"
-mkdir -p "0x04-TypeScript/task_3/js/"
-mkdir -p "0x04-TypeScript/task_4/js/"
-mkdir -p "0x04-TypeScript/task_5/js/"
-mkdir -p "0x04-TypeScript/task_4/js/subjects/"
+mkdir -p "0x05-Node_JS_basic"
+mkdir -p "0x05-Node_JS_basic/full_server"
+mkdir -p "0x05-Node_JS_basic/full_server/controllers"
+mkdir -p "0x05-Node_JS_basic/full_server/routes"
 
 for t in ${allThreads[@]}; do
 
     if [[ $t == *".py"* ]]; then
-        echo -e "#!/usr/bin/python3\n" > "./0x04-TypeScript/$t" && chmod +x "./0x04-TypeScript/$t"
+        echo -e "#!/usr/bin/python3\n" > "./0x05-Node_JS_basic/$t" && chmod +x "./0x05-Node_JS_basic/$t"
     else
-        # echo -e "#!/usr/bin/node\n" > "./0x04-TypeScript/$t"
-        touch "./0x04-TypeScript/$t"
+        # echo -e "#!/usr/bin/node\n" > "./0x05-Node_JS_basic/$t"
+        touch "./0x05-Node_JS_basic/$t"
     fi
 done
 
-echo -e "# ALX Programme Project: 0x04. Typescript" > "./0x04-TypeScript/README.md"
+echo -e "# ALX Programme Project: 0x05. NodeJS Basics" > "./0x05-Node_JS_basic/README.md"
 
-echo -e "#!/bin/bash\ngit add . && git commit -m '0x04. Typescript' && git push"  > "./0x04-TypeScript/correction" && chmod +x "./0x04-TypeScript/correction"
+echo -e "#!/bin/bash\ngit add . && git commit -m '0x05. NodeJS Basics' && git push"  > "./0x05-Node_JS_basic/correction" && chmod +x "./0x05-Node_JS_basic/correction"
 
-cp "../alx-higher_level_programming/0x05-python-exceptions/clean_up_corrections" "./0x04-TypeScript/"
+cp "../alx-higher_level_programming/0x05-python-exceptions/clean_up_corrections" "./0x05-Node_JS_basic/"
 
-cd ./0x04-TypeScript
+cd ./0x05-Node_JS_basic
