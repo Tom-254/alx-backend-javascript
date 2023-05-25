@@ -1,25 +1,25 @@
 #!/bin/bash
-allThreads=("database.csv" "package.json" "babel.config.js" ".eslintrc.js" "0-console.js" "1-stdin.js" "2-read_file.js" "3-read_file_async.js" "4-http.js" "5-http.js" "6-http_express.js" "7-http_express.js" "full_server/utils.js" "full_server/controllers/AppController.js" "full_server/controllers/StudentsController.js" " full_server/routes/index.js" "full_server/server.js")
+allThreads=("0-calcul.js" "package.json" "0-calcul.test.js" "1-calcul.js" "1-calcul.test.js" "2-calcul_chai.js" "2-calcul_chai.test.js" "utils.js" "3-payment.js" "3-payment.test.js" "4-payment.js" "4-payment.test.js" "5-payment.js" "5-payment.test.js" "6-payment_token.js" "6-payment_token.test.js" "7-skip.test.js" "8-api/package.json" "8-api/api.js" "8-api/api.test.js" "9-api/api.js" "9-api/api.test.js" "9-api/package.json" "10-api/api.js" "10-api/api.test.js" "10-api/package.json")
 
-mkdir -p "0x05-Node_JS_basic"
-mkdir -p "0x05-Node_JS_basic/full_server"
-mkdir -p "0x05-Node_JS_basic/full_server/controllers"
-mkdir -p "0x05-Node_JS_basic/full_server/routes"
+mkdir -p "0x06-unittests_in_js"
+mkdir -p "0x06-unittests_in_js/10-api"
+mkdir -p "0x06-unittests_in_js/9-api"
+mkdir -p "0x06-unittests_in_js/8-api"
 
 for t in ${allThreads[@]}; do
 
     if [[ $t == *".py"* ]]; then
-        echo -e "#!/usr/bin/python3\n" > "./0x05-Node_JS_basic/$t" && chmod +x "./0x05-Node_JS_basic/$t"
+        echo -e "#!/usr/bin/python3\n" > "./0x06-unittests_in_js/$t" && chmod +x "./0x06-unittests_in_js/$t"
     else
-        # echo -e "#!/usr/bin/node\n" > "./0x05-Node_JS_basic/$t"
-        touch "./0x05-Node_JS_basic/$t"
+        # echo -e "#!/usr/bin/node\n" > "./0x06-unittests_in_js/$t"
+        touch "./0x06-unittests_in_js/$t"
     fi
 done
 
-echo -e "# ALX Programme Project: 0x05. NodeJS Basics" > "./0x05-Node_JS_basic/README.md"
+echo -e "# ALX Programme Project: 0x06. Unittests in JS" > "./0x06-unittests_in_js/README.md"
 
-echo -e "#!/bin/bash\ngit add . && git commit -m '0x05. NodeJS Basics' && git push"  > "./0x05-Node_JS_basic/correction" && chmod +x "./0x05-Node_JS_basic/correction"
+echo -e "#!/bin/bash\ngit add . && git commit -m '0x06. Unittests in JS' && git push"  > "./0x06-unittests_in_js/correction" && chmod +x "./0x06-unittests_in_js/correction"
 
-cp "../alx-higher_level_programming/0x05-python-exceptions/clean_up_corrections" "./0x05-Node_JS_basic/"
+cp "../alx-higher_level_programming/0x05-python-exceptions/clean_up_corrections" "./0x06-unittests_in_js/"
 
-cd ./0x05-Node_JS_basic
+cd ./0x06-unittests_in_js
